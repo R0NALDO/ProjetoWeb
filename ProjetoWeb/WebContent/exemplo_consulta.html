@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+		<script>
+			$(function(){
+				$('#btn_buscar').click(
+					function(){
+						$.get('controllerLocalizarCliente', {nome:$('#txt_nome').val},
+								function(responseJsonCliente){
+									alert(responseJsonCliente)
+								}
+					)})
+			});
+		</script>
+	</head>
+	<body>
+		<div class = 'container-fluid'>
+			<div class = 'row'>
+				<div class = 'col-sm-2'><label>nome:</label></div>
+				<div class = 'col-sm-2'><input id = 'txt_nome'></div>
+				<div class = 'col-sm-8'><button id = 'btn_buscar' >nome:</div>
+			</div>
+		</div>
+		
+		<!-- <div class="form-group">
+     			<label for="nome" class="col-lg-5 control-label">Nome</label>
+		      		<div class="col-sm-10">
+		        		<input type="text" id="nome" placeholder="digite o nome">
+		      		</div>
+	      		
+     			<label for="sobrenome" class="col-lg-5 control-label">Sobrenome</label>
+		      		<div class="col-sm-10">
+		        		<input type="text" id="sobrenome" placeholder="digite o sobrenome">
+		      		</div>
+	      		
+	      		<label for="email" class="col-lg-5 control-label">Email</label>
+		      		<div class="col-sm-10">
+		        		<input type="text" id="email" placeholder="digite o email">
+		      		</div>
+				<button id="btn_ok" > ok</button>
+	   		</div> -->
+		
+	</body>
+</html>
