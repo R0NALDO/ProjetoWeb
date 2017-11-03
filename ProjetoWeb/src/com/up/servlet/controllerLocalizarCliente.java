@@ -28,7 +28,7 @@ public class controllerLocalizarCliente extends HttpServlet {
 		try {
 			c.Localizar(Vnome);
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
+			// TODO
 			e.printStackTrace();
 		}
 		String JsonCliente = new Gson().toJson(c);
