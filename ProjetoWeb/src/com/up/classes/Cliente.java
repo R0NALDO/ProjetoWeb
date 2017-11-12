@@ -14,19 +14,19 @@ public class Cliente {
 	
 	public void Salvar() throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost/primeiro","root","positivo");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost/primeiro?autoReconnect=true&useSSL=false","root","");
 		Statement comando = con.createStatement();
 		String sqlInsert = "INSERT INTO CLIENTE(NOME, SOBRENOME, EMAIL) VALUES ('"
 				+ this.nome+"','"
 				+ this.sobrenome+"','"
 				+ this.email+"')";
-		System.out.println(sqlInsert);
+//		System.out.println(sqlInsert);
 		comando.execute(sqlInsert);
 	}
 	
 	public void Localizar(String nome) throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost/primeiro","root","positivo");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost/primeiro?autoReconnect=true&useSSL=false","root","");
 		Statement comando = con.createStatement();
 		String sqlSelect = "SELECT * FROM CLIENTE WHERE NOME LIKE '% "+nome+"%'";
 		ResultSet rs = comando.executeQuery(sqlSelect);
@@ -37,5 +37,4 @@ public class Cliente {
 			this.email = rs.getString("email");
 		}
 	}
-
 }

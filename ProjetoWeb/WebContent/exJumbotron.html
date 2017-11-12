@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>cadastro de cliente</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+	<body>
+		<br>
+		<br>
+		<div  class='container-fluid'>
+			<div class = 'panel-group'>
+				<div class='row'>
+					<div class='col-sm-10'>
+						<div class='panel panel-info'>
+							<div id='panel1' class='panel-heading'><a href='#' data-toggle="collapse" data-target=" #corpo1, #rodape1">
+								ocultar/mostrar cabeçalho</a>
+							</div>
+							<div id='corpo1' class='panel-body'>
+								<label>Nome:</label> <input type='text'>
+							</div>
+							<div id='rodape1' class='panel-footer'>
+								rodapé do primeiro painel
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class='row'>
+					<div class='col-sm-10'>
+						<div class='panel panel-danger'>
+							<div class='panel-heading'>
+								cabeçalho do segundo painel
+							</div>
+							<div class='panel-body'>
+								<label>Nome:</label> <input type='text'>
+							</div>
+							<div class='panel-footer'>
+								rodapé do segundo painel
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class='row'>
+					<div class='col-sm-10'>
+						<div class='panel panel-warning'>
+							<div class='panel-heading'>cabeçalho do terceiro painel</div>
+							<div class='panel-body'>
+								<label>Nome:</label> <input type='text'>
+							</div>
+							<div class='panel-footer'>rodapé do terceiro painel</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+					$(function(){
+							$('.btn-primary').click(function(){
+								var Vnome = $('#inputNome').val(); 
+								var Vsobrenome = $('#inputSobrenome').val(); 
+								//var Vendereco = $('#inputEndereco').val(); 
+								var Vemail = $('#inputEmail').val(); 
+								$.get("ClienteController", {nome:Vnome, sobrenome:Vsobrenome, email:Vemail} function(){alert("ok");})
+							}
+							);
+						}
+					);
+		</script>
+		</body>
+</html>
