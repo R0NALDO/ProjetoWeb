@@ -15,7 +15,6 @@ import com.up.classes.Cliente;
 @WebServlet("/controllerLocalizarCliente")
 public class controllerLocalizarCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
     
     public controllerLocalizarCliente() {
         super();
@@ -28,7 +27,6 @@ public class controllerLocalizarCliente extends HttpServlet {
 		try {
 			c.Localizar(Vnome);
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO
 			e.printStackTrace();
 		}
 		String JsonCliente = new Gson().toJson(c);

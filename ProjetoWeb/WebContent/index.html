@@ -11,6 +11,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
+	
 	<body>
 		<div class="bgimg w3-display-container w3-text-white">
 			<div class="w3-display-middle w3-jumbo">
@@ -19,12 +20,12 @@
 			<div class="w3-display-topleft w3-container w3-xlarge">
 				<p>
 					<button
-						onclick="document.getElementById('menu').style.display='block'"
+						onclick="document.getElementById('cadastrar').style.display='block'"
 						class="w3-button w3-black">Novo Cliente</button>
 				</p>
 				<p>
 					<button
-						onclick="document.getElementById('contact').style.display='block'"
+						onclick="document.getElementById('buscar').style.display='block'"
 						class="w3-button w3-black">Buscar</button>
 				</p>
 				<p>
@@ -36,12 +37,12 @@
 			<div class="w3-display-bottomleft w3-container">
 				<p class="w3-xlarge">msg</p>
 				<p class="w3-large">Curitiba PR</p>
-				<p>Criado por Ronaldo</p>
+				<p>Criado por Ronaldo Pereira</p>
 			</div>
 		</div>
 	
 		<!-- Cadastrar Modal -->
-		<div id="menu" class="w3-modal">
+		<div id="cadastrar" class="w3-modal">
 			<div class="w3-modal-content w3-animate-zoom">
 			
 				<div class="w3-container w3-black w3-display-container">
@@ -54,28 +55,28 @@
 				  <fieldset>
 				    <legend>Insira os dados</legend>
 				    <div class="form-group">
-				      <label for="inputNome">Nome </label>
-				      <input type="text" class="form-control" id="inputNome"placeholder="digite o nome">
+				      <label for="labelNome">Nome </label>
+				      <input id="inputNome" type="text" class="form-control" placeholder="digite o nome">
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="inputCPF">CPF </label>
-				      <input type="text" class="form-control" id="inputCPF"placeholder="digite o cpf">
+				      <input id="inputCPF" type="text" class="form-control" placeholder="digite o cpf">
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="inputEndereco">Endereco </label>
-				      <input type="text" class="form-control" id="inputEndereco"placeholder="digite o endereço">
+				      <input id="inputEndereco" type="text" class="form-control" placeholder="digite o endereço">
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="inputTelefone">Telefone </label>
-				      <input type="text" class="form-control" id="inputTelefone" placeholder="digite o telefone">
+				      <input id="inputTelefone" type="text" class="form-control" placeholder="digite o telefone">
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="inputEmail">Email </label>
-				      <input type="text" class="form-control" id="inputEmail" placeholder="Digite o Email">
+				      <input id="inputEmail" type="text" class="form-control" placeholder="Digite o Email">
 				    </div>
 				    
 				  	<div class="col-sm-4 col-sm-offset-5">
@@ -88,7 +89,7 @@
 		</div>
 	
 		<!-- Buscar Modal -->
-		<div id="contact" class="w3-modal">
+		<div id="buscar" class="w3-modal">
 			<div class="w3-modal-content w3-animate-zoom">
 				<div class="w3-container w3-black">
 					<span
@@ -143,7 +144,7 @@
 								placeholder="Nome" required name="Name">
 						</p>
 						<p>
-							<input class="w3-input w3-padding-16 w3-border" type="number"
+							<input class="w3-input w3-padding-8 w3-border" type="number"
 								placeholder="Quantas pessoas" required name="People">
 						</p>
 						<p>
@@ -152,7 +153,7 @@
 								name="date" value="2017-11-16T20:00">
 						</p>
 						<p>
-							<input class="w3-input w3-padding-16 w3-border" type="text"
+							<input class="w3-input w3-padding-8 w3-border" type="text"
 								placeholder="Mensagem / Considerações" required
 								name="Message">
 						</p>
@@ -167,19 +168,20 @@
 		<script>
 		$(function(){
 				$('#enviar').click(function(){
-					alert("ok");
+					alert("dados enviados =]");
 					var Vnome = 		$('#inputNome').val(); 
-					var Vsobrenome = 	$('#inputEndereco').val(); 
-					//var Vendereco = 	$('#inputEndereco').val(); 
+					var Vcpf = 			$('#inputCPF').val(); 
+					var Vendereco = 	$('#inputEndereco').val(); 
+					var Vtelefone = 	$('#inputTelefone').val(); 
 					var Vemail = 		$('#inputEmail').val(); 
-					alert("ok2");
-					$.get("ClienteController",{nome:Vnome, sobrenome:Vsobrenome, email:Vemail}, 
+					$.get("ClienteController",{nome:Vnome, cpf:Vcpf, endereco:Vendereco, telefone:Vtelefone, email:Vemail}, 
 						function(){
-								alert("ok3");
+								alert("dados gravados");
 						});
 				});
 		});
 		</script>
+		
 	</body>
 </html>
 

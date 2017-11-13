@@ -9,7 +9,9 @@ import java.sql.Statement;
 public class Cliente {
 
 	public String nome;
-	public String sobrenome;
+	public String cpf;
+	public String endereco;
+	public String telefone;
 	public String email;
 	
 	public void Salvar() throws ClassNotFoundException, SQLException{
@@ -18,7 +20,7 @@ public class Cliente {
 		Statement comando = con.createStatement();
 		String sqlInsert = "INSERT INTO CLIENTE(NOME, SOBRENOME, EMAIL) VALUES ('"
 				+ this.nome+"','"
-				+ this.sobrenome+"','"
+				+ this.endereco+"','"
 				+ this.email+"')";
 //		System.out.println(sqlInsert);
 		comando.execute(sqlInsert);
@@ -33,7 +35,7 @@ public class Cliente {
 		
 		if(rs.next()){
 			this.nome = rs.getString("nome");
-			this.sobrenome = rs.getString("sobrenome");
+			this.endereco = rs.getString("sobrenome");
 			this.email = rs.getString("email");
 		}
 	}

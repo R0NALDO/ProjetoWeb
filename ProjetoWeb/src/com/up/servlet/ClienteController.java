@@ -20,17 +20,18 @@ public class ClienteController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String nome = request.getParameter("nome");
-		String sobrenome = request.getParameter("sobrenome");
-		String email = request.getParameter("email");
-		
-		System.out.println(nome+"ok4");
+		String nome = 		request.getParameter("nome");
+		String cpf = 		request.getParameter("cpf");
+		String endereco = 	request.getParameter("endereco");
+		String telefone = 	request.getParameter("telefone");
+		String email = 		request.getParameter("email");
 		
 		Cliente c = new Cliente();
-		c.nome = nome;
-		c.sobrenome = sobrenome;
-		c.email = email;
+		c.nome = 	nome;
+		c.cpf = 	cpf;
+		c.endereco = endereco;
+		c.telefone = telefone;
+		c.email = 	email; 
 		
 		try {
 			c.Salvar();
