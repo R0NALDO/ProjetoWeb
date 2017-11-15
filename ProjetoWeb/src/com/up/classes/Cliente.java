@@ -40,3 +40,19 @@ public class Cliente {
 		}
 	}
 }
+
+/*
+ * "INSERT INTO CLIENTE("
+				+ "NOME, "
+//				+ "CPF, "
+				+ "SOBRENOME, "
+//				+ "TELEFONE, "
+				+ "EMAIL"
+				+ ") VALUES ('"
+				+ this.nome+"','"
+//				+ this.cpf+"','"
+				+ this.sobrenome+"','"
+//				+ this.telefone+"','"
+				+ this.email+"')"
+
+ */
