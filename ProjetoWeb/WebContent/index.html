@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>cadastro de clientes</title>
+		<title>cadastro de produtos</title>
 		<meta name="viewport" content="width=device-width, initial-scale=">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
@@ -15,7 +15,7 @@
 	<body>
 		<div class="bgimg w3-display-container w3-text-white">
 			<div class="w3-display-middle w3-jumbo">
-				<p>Cadastro de Clientes</p>
+				<p>Cadastro de Produtos</p>
 			</div>
 			<div class="w3-display-topleft w3-container w3-xlarge">
 				<p>
@@ -95,9 +95,30 @@
 					<span
 						onclick="document.getElementById('buscar').style.display='none'"
 						class="w3-button w3-display-topright w3-large">x</span>
-					<h1>Contact</h1>
+					<h1>Buscar usuário</h1>
 				</div>
-				<div class="w3-container">
+				
+				<form>
+				  <fieldset>
+				    <legend>Buscar dados</legend>
+				    <div class="form-group">
+				      <label for="labelNome">Nome </label>
+				      <input id="buscarNome" type="text" class="form-control" placeholder="digite o nome">
+				    </div>
+				    
+				    <div class="form-group">
+				      <label for="inputCPF">CPF </label>
+				      <input id="buscarCPF" type="text" class="form-control" placeholder="digite o cpf">
+				    </div>
+				    
+				  	<div class="col-sm-4 col-sm-offset-5">
+						<button id="limpar" type="reset" class="w3-button w3-black">Limpar</button>
+						<button id="btnbuscar" type="submit" class="w3-button w3-black">Enviar</button>
+					</div>
+				  </fieldset>
+				</form>
+				
+				<!-- <div class="w3-container">
 					<p>
 						message:</p>
 					<form action="/action_page.php" target="_blank">
@@ -123,7 +144,8 @@
 							<button class="w3-button" type="submit"> MESSAGE</button>
 						</p>
 					</form>
-				</div>
+				</div> -->
+				
 			</div>
 		</div>
 		
@@ -136,32 +158,9 @@
 						class="w3-button w3-display-topright w3-large">x</span>
 					<h1>Sobre</h1>
 				</div>
-				<div class="w3-container">
-					<p> mensagem:</p>
-					<form action="/action_page.php" target="_blank">
-						<p>
-							<input class="w3-input w3-padding-16 w3-border" type="text"
-								placeholder="Nome" required name="Name">
-						</p>
-						<p>
-							<input class="w3-input w3-padding-8 w3-border" type="number"
-								placeholder="Quantas pessoas" required name="People">
-						</p>
-						<p>
-							<input class="w3-input w3-padding-16 w3-border"
-								type="datetime-local" placeholder="Data e Hora" required
-								name="date" value="2017-11-16T20:00">
-						</p>
-						<p>
-							<input class="w3-input w3-padding-8 w3-border" type="text"
-								placeholder="Mensagem / Considerações" required
-								name="Message">
-						</p>
-						<p>
-							<button class="w3-button" type="submit"> Mensagem</button>
-						</p>
-					</form>
-				</div>
+				<br>
+				<p>      desevolvido por ronaldo pereira</p>
+				<br>
 			</div>
 		</div>
 		
@@ -179,6 +178,22 @@
 								alert("dados gravados");
 						});
 				});
+		});
+		
+		$(function(){
+				$('#btnbuscar').click(
+					function(){
+					$.get("PesquisaController",{nome:$('#buscarNome').val(),
+						function(json){
+							for (i in json)
+								$(#panel).append(
+										"<div class='row'>"
+										+"<div class='col-sm-3'"
+										+json[i].nome + "</div>";
+								)
+						}
+						}
+					});
 		});
 		</script>
 		

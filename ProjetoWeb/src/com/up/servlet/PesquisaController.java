@@ -1,0 +1,72 @@
+package com.up.servlet;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.up.classes.Cliente;
+
+@WebServlet("/ClienteController")
+public class PesquisaController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	public PesquisaController() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nome = 		request.getParameter("nome");
+		String cpf = 		request.getParameter("cpf");
+		String endereco = 	request.getParameter("endereco");
+		String telefone = 	request.getParameter("telefone");
+		String email = 		request.getParameter("email");
+		
+		Cliente c = new Cliente();
+		c.nome = 	nome;
+		c.cpf = 	cpf;
+		c.endereco = endereco;
+		c.telefone = telefone;
+		c.email = 	email; 
+		
+		try {
+			c.Salvar();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+}
+
+/*
+ *package com.up.servlet;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/teste")
+public class teste extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public teste() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nome = request.getParameter("nome");
+		String sobrenome = request.getParameter("sobrenome");
+		String email = request.getParameter("email");
+		System.out.println("testedaservlet");
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+}
+ 
+ */
